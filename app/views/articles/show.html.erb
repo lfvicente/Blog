@@ -18,3 +18,14 @@
 
 <%= link_to 'Back', articles_path %>
 <%= link_to 'Edit', articles_path(@article) %>
+
+<%= link_to('Yes', 
+		article_path(@article, :title => "Hello update" ), 
+		{ :method => :put }) %>
+
+<%= link_to('Yes', 
+
+    {:controller => 'articles', :action => 'update', :id => @article.id, :title => "Hello update"},
+		{ :method => :put, :remote => true }) %>
+
+<%= debug(params) %>

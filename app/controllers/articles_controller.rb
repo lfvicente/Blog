@@ -31,12 +31,13 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 
-		if @article.update(article_params)
+		if @article.update(:title => "adios")
 			redirect_to @article
 		else
 			render 'edit'
 		end
 	end
+
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
@@ -46,7 +47,8 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title, :text)
+			byebug
+			params.require(:article).permit(:id, :title)
 		end
 	
 end
