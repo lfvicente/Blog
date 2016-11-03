@@ -30,8 +30,9 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
+		value=params[:title]
 
-		if @article.update(:title => "adios")
+		if @article.update(:title => value)
 			redirect_to @article
 		else
 			render 'edit'
@@ -47,7 +48,7 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			byebug
+			
 			params.require(:article).permit(:id, :title)
 		end
 	
